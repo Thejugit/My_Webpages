@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="one.css">
+
+<nav>
+    <center><h1 class="title">To-Do List</h1></center>
+</nav>
+<div id="cred">
+    <button id="cBtn" onmouseover="mEnter()" onmouseout="mLeave()">Credits</button>
+</div>
+<div id="box">
+    <input type="text" placeholder="Enter a task" id="input">
+    <button id="Add" onclick="AddEle()">➕</button>
+</div>
+<script>
+    function AddEle(){
+        var inpt = document.getElementById("input")
+        var bx = document.getElementById("box")
+
+        var sitem = document.createElement("p")
+        var stask = inpt.value
+        sitem.textContent = stask
+        bx.append(sitem)
+        inpt.value = ""
+    }
+    function mEnter(){
+        let btn = document.getElementById("cBtn")
+        var val = btn.textContent
+        setTimeout(() => {
+            btn.textContent = val+": Thejesh Mughilan"
+        }, 700);
+    }
+    function mLeave(){
+        let btn = document.getElementById("cBtn")
+        btn.textContent = "Credits"
+    }
+</script>
