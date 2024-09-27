@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="style.css">
+
+<center>
+<div class="div">
+<h1>Guess the number from 1 to 10</h1>
+<input type="number" id="input" placeholder="Enter a number">
+<button id="btn" onclick="Guess()">Check</button>
+<p id="stat">status</p>
+<p id="score">Your score:10</p>
+<div id="wrn"></div>
+</div>
+</center>
+
+<script>
+    var count = 10
+    function Guess()
+    {
+        if(count > 0){
+            var a = Math.random()
+            var b = Math.floor(a*10)+1
+            var btn = document.getElementById("btn")
+            var stat = document.getElementById("stat")
+            var score = document.getElementById("score")
+            var inpt = document.getElementById("input")
+
+            var numA = Number(inpt.value)
+            if (numA == b){
+                stat.textContent = "You are correct"
+                score.textContent = "Your score:"+count
+                alert("You Won!!!")
+                console.log(b)
+            }else{
+                stat.textContent = "You are Wrong!"
+                count -= 1
+                score.textContent = "Your score:"+count
+                console.log(b)
+            }
+        }
+        else{
+            console.log("11111")
+            var msg = document.getElementById("wrn")
+            var item = document.createElement("h3")
+            item.textContent = "You ran out of guesses"
+            msg.append(item)
+        }
+    }
+</script>
